@@ -15,16 +15,15 @@ gulp.task('less', function () {
         .pipe(less({
             paths: [path.join(__dirname, 'less', 'includes')]
         }))
-        .pipe(gulp.dest('./src/public/stylesheets'));
+        .pipe(gulp.dest('./build/public/stylesheets'));
 });
 
 
 // run mocha tests in the ./tests folder
 gulp.task('test', function () {
-
     return gulp.src('./tests/test*.js', { read: false })
     // gulp-mocha needs filepaths so you can't have any plugins before it 
-        .pipe(mocha());
+    .pipe(mocha());
 });
 
 // run browser-sync on for client changes
@@ -63,7 +62,7 @@ var tsConfigSrc = tsb.create('src/tsconfig.json');
 gulp.task('build', function () {
     return gulp.src(['typings/**/*.ts', 'src/**/*.ts'])
         .pipe(tsConfigSrc()) 
-        .pipe(gulp.dest('src'));
+        .pipe(gulp.dest('build'));
 });
 
 // TypeScript build for /tests folder, pipes in .d.ts files from typings folder
