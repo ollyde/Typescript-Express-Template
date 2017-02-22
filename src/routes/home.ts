@@ -1,19 +1,16 @@
 import { Router } from 'express';
 import { someFunction } from '../common/test';
 
-const index = Router();
+const home = Router();
 
 /* GET home page. */
-index.get('/', function(req, res, next) {
-
-  someFunction('Yi');
-
+home.get('/', function(req, res, next) {
   res.render('index', { title: 'Visual Studio Code!' });
 });
 
 /* GET Quick Start. */
-index.get('/quickstart', function(req, res, next) {
+home.get('/quickstart', function(req, res, next) {
   res.render('quickstart');
 });
 
-export default index;
+export default home;

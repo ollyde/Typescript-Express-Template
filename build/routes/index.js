@@ -1,10 +1,8 @@
 "use strict";
 var express_1 = require('express');
-var test_1 = require('../common/test');
 var index = express_1.Router();
 /* GET home page. */
 index.get('/', function (req, res, next) {
-    test_1.someFunction('Yi');
     res.render('index', { title: 'Visual Studio Code!' });
 });
 /* GET Quick Start. */

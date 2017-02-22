@@ -3,7 +3,7 @@ var express = require('express');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
 var path_1 = require('path');
-var index_1 = require('./routes/index');
+var home_1 = require('./routes/home');
 var users_1 = require('./routes/users');
 var some_route_1 = require('./routes/some-route');
 var cookieParser = require('cookie-parser'); // this module doesn't use the ES6 default export yet
@@ -18,7 +18,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path_1.join(__dirname, 'public')));
-app.use('/', index_1.default);
+app.use('/', home_1.default);
 app.use('/users', users_1.default);
 app.use('/some-route', some_route_1.someRoute);
 // catch 404 and forward to error handler

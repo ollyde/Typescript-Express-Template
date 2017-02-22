@@ -2,7 +2,7 @@ import * as express from 'express';
 import * as logger from 'morgan';
 import * as bodyParser from 'body-parser';
 import {join} from 'path';
-import index from './routes/index';
+import home from './routes/home';
 import users from './routes/users';
 import { someRoute } from './routes/some-route';
 import cookieParser = require('cookie-parser'); // this module doesn't use the ES6 default export yet
@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(join(__dirname, 'public')));
 
-app.use('/', index);
+app.use('/', home);
 app.use('/users', users);
 app.use('/some-route', someRoute);
 
