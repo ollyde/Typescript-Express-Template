@@ -4,6 +4,7 @@ import * as bodyParser from 'body-parser';
 import {join} from 'path';
 import index from './routes/index';
 import users from './routes/users';
+import { someRoute } from './routes/some-route';
 import cookieParser = require('cookie-parser'); // this module doesn't use the ES6 default export yet
 
 const app: express.Express = express();
@@ -13,7 +14,7 @@ app.set('views', join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(__dirname + '/public/favicon.ico'));
+// app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -22,6 +23,7 @@ app.use(express.static(join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/some-route', someRoute);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
@@ -35,7 +37,6 @@ app.use((req, res, next) => {
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
-
   app.use((error: any, req, res, next) => {
     res.status(error['status'] || 500);
     res.render('error', {
