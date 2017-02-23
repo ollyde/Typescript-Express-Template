@@ -1,6 +1,7 @@
 {
   "name": "node-express-typescript",
-  "description": "node-express-typescript Sample Application (TypeScript)",
+  "auther": "Oliver Dixon",
+  "description": "Typescript with NodeJS and Express",
   "version": "0.0.0",
   "private": true,
   "scripts": {
